@@ -117,7 +117,7 @@ class App extends Component {
         return (
               <div className="App">
                     <header className="App-header">
-                        <h1 className="App-titre">Welcome to pendu with React</h1>
+                        <h1 className="App-titre">Un pendu avec React</h1>
                     </header>
                     <div className="App-zoneMot">
                         <Mot mot={this.state.phraseCachee}/>
@@ -125,8 +125,9 @@ class App extends Component {
                     <div className="App-zoneLettre">
                          {this.renduZoneLettre()}
                     </div>
-                    <div className="dessin">
-                         <Stage width={window.innerWidth} height={window.innerHeight}>
+                    <p className="nbEssai">Nombre d'essais restant avant d'être pendu : </p>
+                    <div className="containerDessin">
+                         <Stage width={800} height={400}>
                              <Canvas essaiRestant = {this.state.essaisManques}/>
                          </Stage>
                     </div>

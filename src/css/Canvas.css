@@ -1,0 +1,12 @@
+.App canvas{
+    position: relative;
+    width:100%;
+}
+.App .konvajs-content{
+    width:350px;
+    height: 300px;
+}
+
+.dessin{
+    width: 350px;
+}

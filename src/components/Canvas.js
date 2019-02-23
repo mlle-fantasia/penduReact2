@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Line, Layer, Text, Circle} from 'react-konva';
+import {Line, Layer, Circle} from 'react-konva';
 
-
+import '../css/Canvas.css';
 
 class Canvas extends Component {
 
@@ -97,12 +97,11 @@ class Canvas extends Component {
         });
 
         return (
-            <Layer>
-                <Text text="nombre d'essais restant avant d'être pendu : "/>
-                {dessin.map((element) => (
-                    element
-                ))}
-            </Layer>
+                <Layer>
+                    {dessin.map((element) => (
+                        element
+                    ))}
+                </Layer>
         );
     }
 }

@@ -22,15 +22,11 @@
   padding: 60px;
   font-size: 35px;
 }
-.App .dessin{
+.App .containerDessin{
   margin: auto;
-  width: 300px;
-  padding-top: 50px;
+  width: 200px;
+  padding-top: 20px;
 }
-.App canvas{
-  position: relative;
-}
-.App .konvajs-content{
-  width:300px;
-  height: 300px;
+.nbEssai{
+  margin-top: 45px;
 }
