@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+  app:
+    container_name: pendureact_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+    - 80
+    env_file:
+    - .env
+
+networks:
+  default:
+    external:
+      name: webproxy
