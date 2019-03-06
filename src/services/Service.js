@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = 'http://localhost:5001/';
+const API = 'https://penduapi.exs3.com/';
 
 
 export async function  getDictionnaire(){
