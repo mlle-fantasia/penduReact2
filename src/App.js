@@ -1,7 +1,7 @@
 //dépendances
 import React, { Component } from 'react';
 import { Stage } from 'react-konva';
-import {BrowserRouter} from "react-router-dom";
+
 
 //components
 import Canvas from './components/Canvas'
@@ -14,7 +14,7 @@ import ChoixDico from "./components/ChoixDico";
 import './css/App.css';
 
 
-import {getDictionnaire, computeDisplay, choixDictionnaires} from "./services/Service";
+import {getDictionnaire, computeDisplay} from "./services/Service";
 
 const ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
@@ -36,8 +36,6 @@ class App extends Component {
     };
 
     async componentDidMount() {
-        // let dico = await choixDictionnaires();
-        // this.setState({dicoActf: dico});
         let mot = await getDictionnaire(this.dicoActf);
         this.setState({mot: mot});
         let phraseCachee = await computeDisplay(mot, this.state.lettreDejaClickee);
@@ -121,29 +119,27 @@ class App extends Component {
 
   render() {
         return (
-            <BrowserRouter>
-                  <div className="App">
-                        <header className="App-header">
-                            <h1 className="App-titre">Jouez au pendu avec React</h1>
-                        </header>
-                        <div className="App-zoneMot">
-                            <Mot mot={this.state.phraseCachee}/>
-                        </div>
-                        <div className="App-zoneLettre">
-                             {this.renduZoneLettre()}
-                        </div>
-                        <p className="nbEssai">Nombre d'essais restant avant d'être pendu : </p>
-                        <div className="containerDessin">
-                             <Stage width={800} height={250}>
-                                 <Canvas essaiRestant = {this.state.essaisManques}/>
-                             </Stage>
-                        </div>
-                        <div className="App-zoneChoixDico">
-                             <ChoixDico dicoActif = {this.state.dicoActf} onClick={(e) => this.redemarrer(e)}/>
-                        </div>
+              <div className="App">
+                    <header className="App-header">
+                        <h1 className="App-titre">Jouez au pendu avec React</h1>
+                    </header>
+                    <div className="App-zoneMot">
+                        <Mot mot={this.state.phraseCachee}/>
+                    </div>
+                    <div className="App-zoneLettre">
+                         {this.renduZoneLettre()}
+                    </div>
+                    <p className="nbEssai">Nombre d'essais restant avant d'être pendu : </p>
+                    <div className="containerDessin">
+                         <Stage width={800} height={250}>
+                             <Canvas essaiRestant = {this.state.essaisManques}/>
+                         </Stage>
+                    </div>
+                    <div className="App-zoneChoixDico">
+                         <ChoixDico dicoActif = {this.state.dicoActf} onClick={(e) => this.redemarrer(e)}/>
+                    </div>
 
-                  </div>
-            </BrowserRouter>
+              </div>
         );
   }
 }
