@@ -4,7 +4,7 @@ class Redemarrer extends Component {
 
 
     redemarrer(){
-        console.log('coucou');
+        console.log('bonne chance !');
         this.props.redemarrer();
     }
 

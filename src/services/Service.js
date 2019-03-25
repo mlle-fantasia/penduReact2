@@ -1,12 +1,40 @@
 import axios from "axios";
 
 const API = 'https://penduapi.exs3.com/';
+const APIPRENOM = 'https://penduapi.exs3.com/prenom';
+const APIVILLE = 'https://penduapi.exs3.com/ville';
 
 
-export async function  getDictionnaire(){
-    const response = await axios.get(API);
-    console.log(response.data.mot);
-    return formatMot(response.data.mot);
+export async function choixDictionnaires(dico){
+    switch (dico) {
+        case "prenoms":
+            return "prenoms" ;
+
+        case "villes":
+            return "villes";
+
+        default:
+            return "noms";
+    }
+
+}
+
+export async function  getDictionnaire(dico){
+    let response = "";
+    switch (dico) {
+        case "prenoms":
+            response = await axios.get(APIPRENOM);
+            return formatMot(response.data.prenom);
+
+        case "villes":
+            response = await axios.get(APIVILLE);
+            return formatMot(response.data.ville);
+
+        default:
+            response = await axios.get(API);
+            return formatMot(response.data.mot);
+    }
+
 
 }
 
