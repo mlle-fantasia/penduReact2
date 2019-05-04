@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: always
     expose:
     - 80
     env_file:
